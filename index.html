@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cave du Terroir — Boutique de vins</title>
+  <meta name="description" content="Boutique en ligne de bouteilles de vin : rouge, blanc, rosé, champagne." />
+<link rel="stylesheet" href="styles.css">
+
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1>Cave du Terroir</h1>
+
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="#catalogue">Catalogue</a></li>
+        <li><a href="#panier">Panier</a></li>
+        <li><a href="#livraison">Livraison</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <form action="/recherche" method="get" aria-label="Rechercher un vin">
+      <label for="q">Rechercher</label>
+      <input id="q" name="q" type="search" placeholder="Domaine, région, millésime..." />
+      <button type="submit">OK</button>
+    </form>
+
+    <p>
+      <strong>Info légale :</strong> Vente d’alcool interdite aux mineurs.
+      Consommez avec modération.
+    </p>
+  </header>
+
+  <main>
+    <section aria-labelledby="intro">
+      <h2 id="intro">Bienvenue</h2>
+      <p>
+        Sélection de vins de vignerons : rouges, blancs, rosés et effervescents.
+        Expédition rapide et emballage renforcé.
+      </p>
+    </section>
+
+    <section id="catalogue" aria-labelledby="titre-catalogue">
+      <h2 id="titre-catalogue">Catalogue</h2>
+
+      <form action="/filtrer" method="get" aria-label="Filtrer le catalogue">
+        <fieldset>
+          <legend>Filtres</legend>
+
+          <p>
+            <label for="type">Type</label>
+            <select id="type" name="type">
+              <option value="">Tous</option>
+              <option value="rouge">Rouge</option>
+              <option value="blanc">Blanc</option>
+              <option value="rose">Rosé</option>
+              <option value="champagne">Champagne</option>
+            </select>
+          </p>
+
+          <p>
+            <label for="prix-max">Prix maximum</label>
+            <input id="prix-max" name="prix_max" type="number" min="0" step="1" placeholder="ex: 25" />
+          </p>
+
+          <p>
+            <label for="region">Région</label>
+            <select id="region" name="region">
+              <option value="">Toutes</option>
+              <option value="bordeaux">Bordeaux</option>
+              <option value="bourgogne">Bourgogne</option>
+              <option value="rhone">Vallée du Rhône</option>
+              <option value="loire">Loire</option>
+              <option value="alsace">Alsace</option>
+              <option value="languedoc">Languedoc</option>
+            </select>
+          </p>
+
+          <button type="submit">Appliquer</button>
+        </fieldset>
+      </form>
+
+      <h3>Produits</h3>
+      <ul>
+        <li>
+          <article>
+            <h4>Château Exemple — Bordeaux Rouge 2019</h4>
+            <p><strong>Prix :</strong> 18,90 €</p>
+            <p><strong>Caractéristiques :</strong> 75 cl, AOP Bordeaux, rouge, 13,5% vol.</p>
+            <p><strong>Note :</strong> Fruits noirs, tanins souples, finale épicée.</p>
+
+            <form action="/panier/ajouter" method="post">
+              <input type="hidden" name="sku" value="BOR-EX-2019" />
+              <label for="qte1">Quantité</label>
+              <input id="qte1" name="quantite" type="number" min="1" value="1" />
+              <button type="submit">Ajouter au panier</button>
+            </form>
+
+            <p><a href="/produits/bor-ex-2019">Voir la fiche produit</a></p>
+          </article>
+        </li>
+
+        <li>
+          <article>
+            <h4>Domaine Démo — Bourgogne Blanc 2021</h4>
+            <p><strong>Prix :</strong> 24,50 €</p>
+            <p><strong>Caractéristiques :</strong> 75 cl, AOP Bourgogne, blanc, 12,5% vol.</p>
+            <p><strong>Note :</strong> Agrumes, fleurs blanches, bouche saline.</p>
+
+            <form action="/panier/ajouter" method="post">
+              <input type="hidden" name="sku" value="BOU-DE-2021" />
+              <label for="qte2">Quantité</label>
+              <input id="qte2" name="quantite" type="number" min="1" value="1" />
+              <button type="submit">Ajouter au panier</button>
+            </form>
+
+            <p><a href="/produits/bou-de-2021">Voir la fiche produit</a></p>
+          </article>
+        </li>
+
+        <li>
+          <article>
+            <h4>Cuvée Test — Rosé de Provence 2023</h4>
+            <p><strong>Prix :</strong> 12,90 €</p>
+            <p><strong>Caractéristiques :</strong> 75 cl, AOP Côtes de Provence, rosé, 12% vol.</p>
+            <p><strong>Note :</strong> Fraise, pêche, très frais.</p>
+
+            <form action="/panier/ajouter" method="post">
+              <input type="hidden" name="sku" value="PRO-RO-2023" />
+              <label for="qte3">Quantité</label>
+              <input id="qte3" name="quantite" type="number" min="1" value="1" />
+              <button type="submit">Ajouter au panier</button>
+            </form>
+
+            <p><a href="/produits/pro-ro-2023">Voir la fiche produit</a></p>
+          </article>
+        </li>
+
+        <li>
+          <article>
+            <h4>Maison Modèle — Champagne Brut</h4>
+            <p><strong>Prix :</strong> 34,00 €</p>
+            <p><strong>Caractéristiques :</strong> 75 cl, Champagne AOP, brut, 12% vol.</p>
+            <p><strong>Note :</strong> Brioche, pomme, bulles fines.</p>
+
+            <form action="/panier/ajouter" method="post">
+              <input type="hidden" name="sku" value="CHP-MM-BRUT" />
+              <label for="qte4">Quantité</label>
+              <input id="qte4" name="quantite" type="number" min="1" value="1" />
+              <button type="submit">Ajouter au panier</button>
+            </form>
+
+            <p><a href="/produits/chp-mm-brut">Voir la fiche produit</a></p>
+          </article>
+        </li>
+      </ul>
+    </section>
+
+    <section id="panier" aria-labelledby="titre-panier">
+      <h2 id="titre-panier">Panier</h2>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <p>Gérez votre panier en ajoutant ou retirant des produits.</p>
+        <button type="button" 
+                onclick="viderPanier()"
+                style="padding: 0.5rem 1rem; background: #ef4444; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 500;">
+          Vider le panier
+        </button>
+      </div>
+
+      <table>
+        <caption>Récapitulatif du panier</caption>
+        <thead>
+          <tr>
+            <th scope="col">Produit</th>
+            <th scope="col">SKU</th>
+            <th scope="col">Prix unitaire</th>
+            <th scope="col">Quantité</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Château Exemple — Bordeaux Rouge 2019</td>
+            <td>BOR-EX-2019</td>
+            <td>18,90 €</td>
+            <td>2</td>
+            <td>37,80 €</td>
+          </tr>
+          <tr>
+            <td>Domaine Démo — Bourgogne Blanc 2021</td>
+            <td>BOU-DE-2021</td>
+            <td>24,50 €</td>
+            <td>1</td>
+            <td>24,50 €</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th scope="row" colspan="4">Total</th>
+            <td><strong>62,30 €</strong></td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <form action="/commande" method="post" aria-label="Passer commande">
+        <fieldset>
+          <legend>Informations de commande</legend>
+
+          <p>
+            <label for="nom">Nom</label>
+            <input id="nom" name="nom" autocomplete="name" required />
+          </p>
+
+          <p>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+          </p>
+
+          <p>
+            <label for="adresse">Adresse</label><br />
+            <textarea id="adresse" name="adresse" rows="3" cols="40" autocomplete="street-address" required></textarea>
+          </p>
+
+          <p>
+            <label for="age">Je certifie avoir 18 ans ou plus</label>
+            <input id="age" name="age_ok" type="checkbox" required />
+          </p>
+
+          <button type="submit">Valider et payer</button>
+        </fieldset>
+      </form>
+    </section>
+
+    <section id="livraison" aria-labelledby="titre-livraison">
+      <h2 id="titre-livraison">Livraison & retours</h2>
+      <ul>
+        <li>Expédition : 24–48h (jours ouvrés) selon stock.</li>
+        <li>Frais : calculés à l’étape de commande.</li>
+        <li>Retours : sous 14 jours (bouteilles non ouvertes), selon conditions.</li>
+      </ul>
+    </section>
+
+    <section id="contact" aria-labelledby="titre-contact">
+      <h2 id="titre-contact">Contact</h2>
+      <p>
+        Email : <a href="mailto:contact@caveduterroir.example">contact@caveduterroir.example</a><br />
+        Téléphone : <a href="tel:+33102030405">+33 1 02 03 04 05</a>
+      </p>
+
+      <form action="/contact" method="post" aria-label="Formulaire de contact">
+        <p>
+          <label for="message">Message</label><br />
+          <textarea id="message" name="message" rows="5" cols="50" required></textarea>
+        </p>
+        <button type="submit">Envoyer</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <time datetime="2026">2026</time> Cave du Terroir</p>
+    <ul>
+      <li><a href="/mentions-legales">Mentions légales</a></li>
+      <li><a href="/cgv">CGV</a></li>
+      <li><a href="/confidentialite">Confidentialité</a></li>
+    </ul>
+  </footer>
+</body>
+</html>

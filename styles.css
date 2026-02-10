@@ -1,0 +1,377 @@
+/* styles.css */
+
+/* ---- Base / Reset léger ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.5;
+  color: #1f2937;
+  background: #f6f7f9;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: #0f766e;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+:focus-visible {
+  outline: 3px solid #0f766e;
+  outline-offset: 2px;
+}
+
+/* ---- Layout ---- */
+header,
+main,
+footer {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+header {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+header h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.6rem;
+  letter-spacing: 0.2px;
+}
+
+header p {
+  margin: 0.75rem 0 0 0;
+  color: #6b7280;
+}
+
+main {
+  padding-top: 1.25rem;
+  padding-bottom: 2rem;
+}
+
+section {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 0 0 1rem 0;
+}
+
+section h2 {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ---- Navigation ---- */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+nav a {
+  display: inline-block;
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  background: #f1f5f9;
+  color: #0f172a;
+  border: 1px solid #e2e8f0;
+}
+
+nav a:hover,
+nav a:focus {
+  background: #e6fffb;
+  border-color: #99f6e4;
+  text-decoration: none;
+}
+
+/* ---- Recherche (header) ---- */
+header form[aria-label="Rechercher un vin"] {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0.75rem 0;
+}
+
+header form label {
+  font-weight: 600;
+}
+
+header input[type="search"] {
+  min-width: 220px;
+}
+
+/* ---- Formulaires ---- */
+form {
+  margin: 0.75rem 0 0 0;
+}
+
+fieldset {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 0.9rem;
+}
+
+legend {
+  padding: 0 0.35rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 0.25rem;
+  color: #111827;
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  max-width: 520px;
+  padding: 0.55rem 0.65rem;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #111827;
+}
+
+input[type="checkbox"] {
+  width: auto;
+  max-width: none;
+  transform: translateY(1px);
+}
+
+textarea {
+  resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #14b8a6;
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.18);
+}
+
+button {
+  appearance: none;
+  border: 1px solid #0f766e;
+  background: #0f766e;
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 0.55rem 0.9rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+button:hover,
+button:focus {
+  background: #115e59;
+  border-color: #115e59;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+/* Petits groupes de champs (ex: filtres) */
+form p {
+  margin: 0.65rem 0;
+}
+
+/* ---- Catalogue / Produits ---- */
+#catalogue ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+#catalogue li {
+  margin: 0;
+}
+
+#catalogue article {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 1rem;
+  background: #ffffff;
+}
+
+#catalogue article h4 {
+  margin: 0 0 0.35rem 0;
+  font-size: 1.05rem;
+  color: #111827;
+}
+
+#catalogue article p {
+  margin: 0.35rem 0;
+  color: #374151;
+}
+
+#catalogue article form {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: end;
+}
+
+#catalogue article form label {
+  margin: 0;
+  font-weight: 600;
+}
+
+#catalogue article form input[type="number"] {
+  width: 6.5rem;
+  max-width: none;
+}
+
+#catalogue article a {
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+/* ---- Panier (table) ---- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.75rem 0;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden; /* pour arrondis */
+}
+
+caption {
+  text-align: left;
+  padding: 0.75rem 0.75rem 0.25rem 0.75rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+th,
+td {
+  padding: 0.65rem 0.75rem;
+  border-top: 1px solid #e5e7eb;
+  text-align: left;
+  vertical-align: top;
+}
+
+thead th {
+  border-top: none;
+  background: #f8fafc;
+  font-size: 0.95rem;
+  color: #111827;
+}
+
+tbody tr:hover {
+  background: #f9fafb;
+}
+
+tfoot th,
+tfoot td {
+  background: #f8fafc;
+  font-weight: 700;
+}
+
+/* ---- Footer ---- */
+footer {
+  color: #6b7280;
+  padding-bottom: 2rem;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+footer a {
+  color: #0f766e;
+}
+
+/* ---- Responsif ---- */
+@media (min-width: 720px) {
+  header {
+    border-radius: 0 0 12px 12px;
+  }
+
+  section {
+    padding: 1.25rem;
+  }
+
+  #catalogue ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Petite mise en page : intro + filtres mieux espacés */
+  #catalogue form[aria-label="Filtrer le catalogue"] fieldset {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem 1rem;
+    align-items: end;
+  }
+
+  #catalogue form[aria-label="Filtrer le catalogue"] fieldset button {
+    width: fit-content;
+    align-self: end;
+  }
+
+  #catalogue ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---- Petits détails “e-commerce” ---- */
+strong {
+  color: #111827;
+}
+
+main section:first-of-type p {
+  color: #374151;
+}
